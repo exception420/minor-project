@@ -76,8 +76,8 @@ def recognize_attendence():
     date = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
     timeStamp = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S')
     Hour, Minute, Second = timeStamp.split(":")
-    fileName = "Attendance"+os.sep+"Attendance_"+date+"_"+Hour+"-"+Minute+"-"+Second+".csv"
-    attendance.to_csv(fileName, index=False)
+    fileName = "Attendance"+os.sep+"Attendance_"+date+"_"+Hour+"-"+Minute+"-"+Second+".json"
+    attendance.to_json(fileName, orient='records')
     print("Attendance Successful")
     cam.release()
     cv2.destroyAllWindows()
